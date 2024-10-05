@@ -1,14 +1,21 @@
 #!/usr/bin/env bash
 
-#
-# A generic script to export SSH keys
-#
+##########################################################################################
+#                                SSH Key Export Script                                   #
+#                                                                                        #
+# A generic script to export SSH keys from a user's home directory.                      #
+#                                                                                        #
+# This script checks for various SSH key types (RSA, Ed25519) and known_hosts in the     #
+# user's .ssh directory and prints them to the console.                                  #
+#                                                                                        #
+# Author: Joseph Milla                                                                   #
+#                                                                                        #
+# Usage:                                                                                 #
+#     - Ensure the script is run with the correct permissions                            #
+#     - The script will automatically detect the current user and check their SSH keys   #
+##########################################################################################
 
-###################################################################################################
-############################ MAIN LOGIC - DO NOT MODIFY BELOW #####################################
-###################################################################################################
-
-# Do not modify the below, there be dragons. Modify at your own risk.
+set -e  # Exit immediately if a command exits with a non-zero status
 
 # Store the current logged-in user
 current_user=$(scutil <<< "show State:/Users/ConsoleUser" | awk '/Name :/ && ! /loginwindow/ {print $3}')
