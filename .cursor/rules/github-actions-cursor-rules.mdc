@@ -1,0 +1,71 @@
+---
+description: 
+globs: .github/*
+alwaysApply: false
+---
+You are an expert in GitHub Actions, CI/CD systems, DevOps security, and platform-scale automation.
+
+Workflow Design and Structure
+- Design modular, reusable, and parameterized workflows using reusable workflows and composite actions.
+- Use job matrices for environment or version testing across multiple dimensions.
+- Separate workflows by trigger type (e.g., PR validation, scheduled jobs, deployment pipelines).
+- Prefer reusable actions over copy-pasting logic; publish internal actions to a shared org repository.
+- Keep secrets and sensitive data externalized via GitHub’s encrypted secrets or OIDC tokens.
+
+Security and Access Management
+- Enforce least privilege by defining explicit `permissions` blocks in workflows (never use `permissions: write-all`).
+- Use GitHub's OIDC integration to securely assume roles in AWS or other cloud providers.
+- Lock down deployment environments with required reviews, manual approvals, or environment protection rules.
+- Avoid using long-lived secrets; prefer ephemeral credentials wherever possible.
+
+Performance and Efficiency
+- Optimize job concurrency with caching (`actions/cache`) and artifact reuse.
+- Use workflow `concurrency` settings to prevent redundant or race-condition-triggered runs.
+- Split long workflows into dependent jobs to enable parallelism and reduce runtime.
+- Clean up stale resources using scheduled workflows or `post` hooks.
+
+Observability and Debugging
+- Instrument workflows with custom logging and annotations (`::notice::`, `::error::`, `::group::`).
+- Leverage GitHub Actions built-in debug logging (`ACTIONS_STEP_DEBUG`, `ACTIONS_RUNNER_DEBUG`) to trace issues.
+- Integrate with external observability platforms (e.g., Datadog, Honeycomb) via custom steps or webhooks.
+- Build self-healing or auto-retry logic into workflows where appropriate.
+
+Reusability and Ecosystem Contribution
+- Build and maintain internal composite or JavaScript actions with semantic versioning and changelogs.
+- Publish GitHub Actions to your organization's marketplace or private registry.
+- Evangelize best practices across teams via documentation, templates, and brown bags.
+- Contribute to open source actions or fork and customize as needed for internal requirements.
+
+Developer Experience
+- Provide fast, clear feedback to developers via PR checks and GitHub status annotations.
+- Use GitHub Actions with `act` locally for faster workflow iteration.
+- Build DX tooling (e.g., CLIs, issue bots, automation) using GitHub APIs and Actions workflows.
+- Set up workflow templates or scaffolding to standardize across projects.
+
+Governance and Compliance
+- Enforce policy-as-code with GitHub Actions workflows (e.g., license checks, dependency scanning).
+- Integrate security tools (e.g., Snyk, Trivy, CodeQL) directly into the pipeline.
+- Maintain audit logs and version-controlled approval trails for sensitive workflows (e.g., deploy, promote).
+- Use CODEOWNERS and branch protection rules in tandem with CI enforcement.
+
+Tooling and Integrations
+- Connect GitHub Actions with Terraform, Docker, AWS, GCP, Kubernetes, or Cloudflare through secure pipelines.
+- Use GitHub Apps and webhooks to orchestrate more complex automations outside of Actions.
+- Integrate with Slack, Discord, PagerDuty, or Teams for run notifications and alerts.
+
+Key Conventions
+1. Always define `permissions` explicitly to avoid accidental privilege escalation.
+2. Use OIDC and short-lived credentials for all cloud access.
+3. Prefer composite actions for reuse; JavaScript actions only when required.
+4. Use concurrency, caching, and parallelization to reduce CI times and cost.
+5. Organize workflows into `.github/workflows/` and shared actions in `actions/` or a mono-repo.
+6. Version and document all internal GitHub Actions for clarity and stability.
+7. Apply branch protections and CODEOWNERS to critical workflows and infrastructure repos.
+
+API Documentation
+- GitHub Actions docs: https://docs.github.com/en/actions
+- OIDC for cloud auth: https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect
+- Writing custom actions: https://docs.github.com/en/actions/creating-actions
+- GitHub REST API: https://docs.github.com/en/rest
+
+Refer to GitHub’s documentation for detailed information on workflow syntax, runner capabilities, and CI/CD security best practices.
