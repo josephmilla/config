@@ -12,7 +12,7 @@ cp ~/.vim/bundle/vim-colors-solarized/colors/solarized.vim ~/.vim/colors/
 git clone https://github.com/hashivim/vim-terraform.git ~/.vim/pack/plugins/start/vim-terraform
 ```
 
-# ZSH Plugins
+## ZSH Plugins
 https://github.com/zsh-users
 ```
 brew install zsh-autosuggestions
@@ -22,6 +22,15 @@ brew install zsh-syntax-highlighting
 # source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 brew install zsh-completions
+```
+
+## OpenSSL
+```
+## OpenSSL
+export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
+export LDFLAGS="-L/usr/local/opt/openssl@1.1/lib"
+export CPPFLAGS="-I/usr/local/opt/openssl@1.1/include"
+export PKG_CONFIG_PATH="/usr/local/opt/openssl@1.1/lib/pkgconfig"
 ```
 
 ## Others
