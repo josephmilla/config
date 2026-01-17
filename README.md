@@ -33,6 +33,11 @@ export CPPFLAGS="-I/usr/local/opt/openssl@1.1/include"
 export PKG_CONFIG_PATH="/usr/local/opt/openssl@1.1/lib/pkgconfig"
 ```
 
+## Editor
+```
+export EDITOR="/opt/homebrew/bin/vim"
+```
+
 ## Others
 - Base16 Flat Color Scheme Configuration:
   - https://github.com/chriskempson/base16-shell
