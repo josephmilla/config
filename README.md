@@ -13,6 +13,7 @@ git clone https://github.com/hashivim/vim-terraform.git ~/.vim/pack/plugins/star
 ```
 
 # ZSH Plugins
+https://github.com/zsh-users
 ```
 brew install zsh-autosuggestions
 # source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
