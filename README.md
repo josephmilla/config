@@ -24,13 +24,10 @@ brew install zsh-syntax-highlighting
 brew install zsh-completions
 ```
 
-## OpenSSL
+## OpenSSL + OpenSSH
 ```
-## OpenSSL
-export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
-export LDFLAGS="-L/usr/local/opt/openssl@1.1/lib"
-export CPPFLAGS="-I/usr/local/opt/openssl@1.1/include"
-export PKG_CONFIG_PATH="/usr/local/opt/openssl@1.1/lib/pkgconfig"
+export PATH="/opt/homebrew/opt/openssl/bin:$PATH"
+export PATH="/opt/homebrew/opt/openssh/bin:$PATH"
 ```
 
 ## Editor
